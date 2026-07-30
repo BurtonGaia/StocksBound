@@ -77,7 +77,7 @@ export function FlowTab({
   );
 
   return (
-    <div className="mx-auto max-w-[1600px] px-4 py-4 sm:px-6">
+    <div className="mx-auto h-full max-w-[1600px] overflow-auto px-4 py-4 sm:px-6">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <div>
           <h2 className="text-head font-semibold">Sector flow</h2>

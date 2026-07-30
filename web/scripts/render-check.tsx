@@ -11,7 +11,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { FlowTab } from "../src/components/flow/FlowTab";
 import { StocksTab } from "../src/components/stocks/StocksTab";
 import { EMPTY_FILTERS } from "../src/components/stocks/filters";
-import { hasConfluence, type LatestFile, type SectorsFile } from "../src/lib/types";
+import { enteredSignal, hasConfluence, type LatestFile, type SectorsFile } from "../src/lib/types";
 
 const root = resolve(process.argv[2] ?? "data");
 const latest: LatestFile = JSON.parse(readFileSync(`${root}/latest.json`, "utf8"));
@@ -46,6 +46,9 @@ check("thin cells carry the hatch overlay", flow.includes("repeating-linear-grad
 check("breadth bars rendered", flow.includes("rounded-full"));
 check("heat colours are oklch", (flow.match(/oklch\(/g) ?? []).length > 30);
 check("baseline row shows absolute return", flow.includes("abs"));
+// The grid becomes a stacked list on phones; both layouts ship, toggled by CSS.
+check("desktop grid present", flow.includes("hidden sm:block"));
+check("phone stacked list present", flow.includes("sm:hidden"));
 
 console.log("\n— Tab 2 renders (unfiltered) —");
 const stocks = renderToStaticMarkup(
@@ -76,6 +79,31 @@ check("filtered row count", filtered.includes("76"));
 check("groups arrive expanded, in the first render", filtered.includes('aria-expanded="true"'));
 check("data rows are visible", filtered.includes("Arch Capital Group") && filtered.includes("Allstate"));
 check("geography subgroup header present", filtered.includes(">US<"));
+
+console.log("\n— Tab 2, changed-today —");
+const changedRows = latest.rows.filter(enteredSignal);
+const changedView = renderToStaticMarkup(
+  <StocksTab
+    latest={latest}
+    filters={{ ...EMPTY_FILTERS, changedOnly: true }}
+    onFilters={noop}
+    mode="light"
+    palette="rg"
+  />,
+);
+check("changed-today lists only entries", changedRows.length > 0, `${changedRows.length} rows`);
+check(
+  // Matched on symbol: names are HTML-escaped in the markup ("&" -> "&amp;"),
+  // so a raw string compare would fail on Arthur J. Gallagher & Co.
+  "every changed row is shown",
+  changedRows.every((r) => changedView.includes(`>${r.symbol}<`)),
+  changedRows.map((r) => r.symbol).join(" "),
+);
+check("the marker dot reaches the DOM", changedView.includes("Flipped into a signal today"));
+check(
+  "sticky offsets are container-relative, not viewport-relative",
+  changedView.includes('top:0') || changedView.includes("top:0px"),
+);
 
 console.log("\n— Tab 2 empty states —");
 const empty = renderToStaticMarkup(

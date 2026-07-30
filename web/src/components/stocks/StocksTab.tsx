@@ -32,14 +32,19 @@ const SIGNAL_RANK: Record<Signal, number> = {
   INSUFFICIENT_DATA: 0,
 };
 
-/* Sticky layers, stacked by explicit offset. Rows are fixed-height by design, so
-   these are deterministic rather than measured. */
-const HEADER_H = 53;
+/* Sticky layers, stacked by explicit offset.
+ *
+ * These are relative to the table's own scroll container, not the viewport --
+ * which is why they do not encode the app header's height. An `overflow` wrapper
+ * becomes the containing block for sticky descendants, so offsets measured from
+ * the viewport would be wrong by exactly the chrome above it, and every group
+ * header would pile up at the top of the container. Row heights are fixed by
+ * design, so these stay deterministic rather than measured. */
 const THEAD_H = 30;
 const GROUP_H = 28;
-const THEAD_TOP = HEADER_H;
-const SECTOR_TOP = HEADER_H + THEAD_H;
-const GEO_TOP = HEADER_H + THEAD_H + GROUP_H;
+const THEAD_TOP = 0;
+const SECTOR_TOP = THEAD_H;
+const GEO_TOP = THEAD_H + GROUP_H;
 
 const NUMERIC = new Set(["close", "sma50", "pct_b"]);
 
@@ -176,20 +181,23 @@ export function StocksTab({
   const span = table.getVisibleLeafColumns().length;
 
   return (
-    <div className="mx-auto max-w-[1600px] px-4 py-4 sm:px-6">
-      <FilterBar
-        filters={filters}
-        onChange={onFilters}
-        counts={counts}
-        onExport={() => downloadCsv(rows, latest.as_of)}
-      />
+    <div className="mx-auto flex h-full max-w-[1600px] flex-col px-4 pt-4 sm:px-6">
+      <div className="shrink-0">
+        <FilterBar
+          filters={filters}
+          onChange={onFilters}
+          counts={counts}
+          onExport={() => downloadCsv(rows, latest.as_of)}
+        />
+      </div>
 
       {rows.length === 0 ? (
         <EmptyState filters={filters} />
       ) : (
-        // Wide content scrolls inside its own container; the page never scrolls
-        // sideways.
-        <div className="mt-3 overflow-x-auto">
+        // The table owns its scrolling, in both axes. Vertical so the sticky
+        // headers have a scrollport to pin against; horizontal so wide content
+        // scrolls here and the page body never does.
+        <div className="mt-3 min-h-0 flex-1 overflow-auto">
           <table className="w-full min-w-[820px] border-separate border-spacing-0 text-body">
             <colgroup>
               <col style={{ width: 46 }} />

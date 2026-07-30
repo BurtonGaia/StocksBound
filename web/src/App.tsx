@@ -57,11 +57,16 @@ export function App() {
   const fresh = freshness(dataset.meta.generated_at);
 
   return (
-    <>
+    /* An instrument panel: chrome is fixed, only the data region scrolls. This is
+       also what lets the table's sticky headers work -- they pin against their own
+       scrollport rather than against the viewport minus a hardcoded chrome height. */
+    <div className="flex h-dvh flex-col">
       {/* Above both tabs, not inside either. */}
-      <StaleBanner freshness={fresh} generatedAt={dataset.meta.generated_at} />
+      <div className="shrink-0">
+        <StaleBanner freshness={fresh} generatedAt={dataset.meta.generated_at} />
+      </div>
 
-      <header className="sticky top-0 z-40 h-[53px] border-b border-line bg-bg">
+      <header className="z-40 h-[53px] shrink-0 border-b border-line bg-bg">
         <div className="mx-auto flex h-full max-w-[1600px] items-center gap-3 px-4 sm:px-6">
           <h1 className="text-head font-semibold whitespace-nowrap">Sector Flow</h1>
 
@@ -86,7 +91,7 @@ export function App() {
         </div>
       </header>
 
-      <main>
+      <main className="min-h-0 flex-1">
         {tab === "flow" ? (
           <FlowTab
             sectors={dataset.sectors}
@@ -107,12 +112,14 @@ export function App() {
         )}
       </main>
 
-      <footer className="mx-auto max-w-[1600px] px-4 pb-8 text-micro text-faint sm:px-6">
-        Close and SMA50 are split- and dividend-adjusted. BB(
-        {dataset.meta.params.bb_period}, {dataset.meta.params.bb_stddev}) · SMA
-        {dataset.meta.params.sma_period} · zone {dataset.meta.params.zone_pct}. Weekly
-        bars resampled W-FRI; the current week is in progress.
+      <footer className="shrink-0 border-t border-line bg-bg">
+        <div className="mx-auto max-w-[1600px] px-4 py-1.5 text-micro text-faint sm:px-6">
+          Close and SMA50 are split- and dividend-adjusted. BB(
+          {dataset.meta.params.bb_period}, {dataset.meta.params.bb_stddev}) · SMA
+          {dataset.meta.params.sma_period} · zone {dataset.meta.params.zone_pct}. Weekly
+          bars resampled W-FRI; the current week is in progress.
+        </div>
       </footer>
-    </>
+    </div>
   );
 }
