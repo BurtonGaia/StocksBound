@@ -17,6 +17,7 @@ import {
   chartUrl,
   enteredSignal,
   hasConfluence,
+  openChart,
   type LatestFile,
   type Signal,
   type StockRow,
@@ -326,7 +327,7 @@ export function StocksTab({
                        copying a price does not navigate away. */
                     onClick={() => {
                       if (window.getSelection()?.toString()) return;
-                      window.open(chartUrl(stock), "_blank", "noopener,noreferrer");
+                      openChart(stock);
                     }}
                     className="motion-hover cursor-pointer hover:bg-hover"
                     /* Confluence gets distinct weight: a rail in its own hue plus a

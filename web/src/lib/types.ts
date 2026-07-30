@@ -152,6 +152,24 @@ export function chartUrl(row: StockRow): string {
 }
 
 /**
+ * Open a chart in a new tab.
+ *
+ * Synthesises a real anchor and clicks it rather than calling window.open.
+ * Both are user-gesture initiated, but pop-up blockers treat a programmatic
+ * window.open as a pop-up and an anchor activation as navigation -- so this
+ * survives stricter browser settings that would silently swallow the click.
+ */
+export function openChart(row: StockRow): void {
+  const link = document.createElement("a");
+  link.href = chartUrl(row);
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+}
+
+/**
  * Flipped *into* a signal on the latest bar -- the actionable list.
  *
  * Narrower than the artifact's `changed` flag, which is true for any flip
