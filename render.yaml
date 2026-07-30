@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: sector-flow
+    # A static site, not a web service. Render's free web services sleep after 15
+    # minutes and its free Postgres is deleted after 30 days; a static site has
+    # neither problem and costs nothing, permanently.
+    runtime: static
+    branch: main
+    buildCommand: cd web && npm ci && npm run build
+    staticPublishPath: web/dist
+    pullRequestPreviewsEnabled: false
+
+    # Only rebuild when something that affects the output changed. The daily
+    # ingest commit touches data/, which does need a rebuild -- the JSON is copied
+    # into the bundle at build time.
+    buildFilter:
+      paths:
+        - data/**
+        - web/**
+        - render.yaml
+
+    headers:
+      # Load-bearing. The data files are overwritten daily at the same URLs, so a
+      # cached copy would make the app show yesterday's numbers while reporting
+      # itself fresh -- the exact failure the staleness banner exists to catch.
+      - path: /data/*
+        name: Cache-Control
+        value: no-cache, must-revalidate
+      # Vite fingerprints these, so they are safe to cache forever.
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

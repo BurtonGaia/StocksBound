@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-30T05:30:30Z",
+  "as_of": "2026-07-29",
+  "run": {
+    "symbols_requested": 582,
+    "symbols_ok": 582,
+    "symbols_failed": 0,
+    "duration_s": 24.3,
+    "failed": []
+  },
+  "universe": {
+    "SP500": {
+      "source": "wikipedia",
+      "count": 503
+    },
+    "CAC40": {
+      "source": "wikipedia",
+      "count": 40
+    },
+    "DAX": {
+      "source": "wikipedia",
+      "count": 39
+    }
+  },
+  "duplicates": [
+    {
+      "symbol": "AIR.PA",
+      "kept": "CAC40",
+      "dropped": "DAX"
+    }
+  ],
+  "unmapped_sectors": [],
+  "params": {
+    "bb_period": 20,
+    "bb_stddev": 2.0,
+    "bb_ddof": 0,
+    "sma_period": 50,
+    "min_bars": 60,
+    "zone_pct": 0.25
+  }
+}

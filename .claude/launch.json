@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "web",
+      "runtimeExecutable": "/Users/anthony/.local/node-v24.18.1-darwin-arm64/bin/node",
+      "runtimeArgs": [
+        "/Users/anthony/Claude Code/StocksRebond/web/node_modules/vite/bin/vite.js",
+        "--config",
+        "/Users/anthony/Claude Code/StocksRebond/web/vite.config.ts"
+      ],
+      "port": 5173
+    }
+  ]
+}

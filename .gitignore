@@ -1,0 +1,17 @@
+# Local Python env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# The price-history cache. Lives in the GitHub Actions cache, never in the repo:
+# committing it would add ~6 MB a day to git for data one API call can rebuild.
+.cache/
+
+# Frontend
+node_modules/
+web/dist/
+# Copied from /data at build time by web/scripts/copy-data.mjs
+web/public/data/
+
+.DS_Store

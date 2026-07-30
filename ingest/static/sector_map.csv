@@ -1,0 +1,84 @@
+raw,gics
+# Vendor-agnostic. Keys are matched after normalisation (lowercased, whitespace
+# collapsed, "&" -> "and", punctuation stripped), so casing and spacing variants
+# do not need their own rows. Anything not listed here is reported as unmapped
+# and fails the run -- it is never bucketed into "Other", because a mislabelled
+# sector silently destroys the cross-geography comparison Tab 1 exists for.
+#
+# --- GICS, as published for the S&P 500 -------------------------------------
+Energy,Energy
+Materials,Materials
+Industrials,Industrials
+Consumer Discretionary,Consumer Discretionary
+Consumer Staples,Consumer Staples
+Health Care,Health Care
+Financials,Financials
+Information Technology,Information Technology
+Communication Services,Communication Services
+Utilities,Utilities
+Real Estate,Real Estate
+#
+# --- Yahoo Finance taxonomy --------------------------------------------------
+Technology,Information Technology
+Financial Services,Financials
+Consumer Cyclical,Consumer Discretionary
+Consumer Defensive,Consumer Staples
+Basic Materials,Materials
+Healthcare,Health Care
+#
+# --- ICB / Deutsche Boerse / Euronext labels ---------------------------------
+Oil & Gas,Energy
+Oil Gas & Coal,Energy
+Chemicals,Materials
+Basic Resources,Materials
+Industrial Metals & Mining,Materials
+Construction & Materials,Industrials
+Industrial Goods & Services,Industrials
+Industrial Transportation,Industrials
+Aerospace & Defence,Industrials
+Aerospace & Defense,Industrials
+Automobiles & Parts,Consumer Discretionary
+Travel & Leisure,Consumer Discretionary
+Retail,Consumer Discretionary
+Personal Goods,Consumer Discretionary
+Consumer Products & Services,Consumer Discretionary
+Food & Beverage,Consumer Staples
+Food Beverage & Tobacco,Consumer Staples
+Personal & Household Goods,Consumer Staples
+Personal Care Drug & Grocery Stores,Consumer Staples
+Health Care Equipment & Services,Health Care
+Pharmaceuticals & Biotechnology,Health Care
+Banks,Financials
+Insurance,Financials
+Telecommunications,Communication Services
+Media,Communication Services
+Technology Hardware & Equipment,Information Technology
+Software & Computer Services,Information Technology
+Electronic & Electrical Equipment,Information Technology
+Semiconductors,Information Technology
+Electricity,Utilities
+Gas Water & Multiutilities,Utilities
+Real Estate Investment Trusts,Real Estate
+Real Estate Investment & Services,Real Estate
+#
+# --- Deutsche Boerse "Prime Standard Sector", as published on the DAX page ----
+# Vendor prose rather than a taxonomy. Note that "Consumer Goods" and
+# "Consumer goods" both appear on the live page; normalisation folds them into
+# one key, which is why casing variants need no rows of their own.
+Apparel,Consumer Discretionary
+Automotive,Consumer Discretionary
+E-Commerce,Consumer Discretionary
+Biotech,Health Care
+Pharmaceuticals,Health Care
+Medical Equipment,Health Care
+Construction Materials,Materials
+Consumer Goods,Consumer Staples
+Distribution,Industrials
+Logistics,Industrials
+Mechanical Engineering,Industrials
+Energy technology,Industrials
+Telecommunication,Communication Services
+#
+# --- Euronext / Wikipedia CAC 40 "Sector" column ------------------------------
+Consumer Services,Consumer Discretionary
+Inspection and certification,Industrials

@@ -1,0 +1,45 @@
+# Every signal parameter lives here.
+#
+# None of these values appear as a literal anywhere in ingest/. Change one,
+# re-run, and both the daily and weekly classifications move together.
+
+[indicators]
+bb_period  = 20    # Bollinger lookback, in bars of the timeframe being computed
+bb_stddev  = 2.0   # band half-width, in standard deviations
+bb_ddof    = 0     # 0 = population stddev, the standard Bollinger convention.
+                   # pandas defaults to ddof=1, which would widen every band
+                   # slightly and shift every %B. Set explicitly, never inherited.
+sma_period = 50    # trend filter length
+min_bars   = 60    # fewer bars on a timeframe -> INSUFFICIENT_DATA, not NEUTRAL
+
+[signal]
+zone_pct = 0.25    # BULLISH needs pct_b <= zone_pct
+                   # BEARISH needs pct_b >= 1 - zone_pct
+                   #
+                   # One knob drives both sides, so symmetry cannot drift.
+                   #
+                   # Read this before changing it: pct_b <= z is equivalent to
+                   # close <= mid + (4z - 2) * sigma. Combined with close > SMA50,
+                   # BULLISH therefore requires
+                   #
+                   #     SMA50 < SMA20 - (2 - 4*zone_pct) * sigma
+                   #
+                   # At 0.25 that demands a full sigma of separation between the
+                   # 20 and the 50, which is why only a low single-digit share of
+                   # the universe ever fires. At 0.50 it demands none at all and
+                   # roughly a third of the universe will signal. The knob is far
+                   # more sensitive than it looks.
+
+[universe]
+history_years  = 10    # first backfill depth; the weekly series needs the depth
+batch_size     = 50    # yfinance tickers per request
+max_retries    = 4
+backoff_base_s = 2.0   # exponential: base * 2**attempt, plus jitter
+
+[horizons]
+# Calendar days back for the Tab 1 relative-strength windows. Calendar-anchored,
+# not bar-counted: US, Paris and Frankfurt have different holiday calendars, and
+# a 5-bar lookback would silently compare mismatched windows across geographies.
+"1w" = 7
+"1m" = 30
+"3m" = 91

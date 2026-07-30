@@ -1,0 +1,41 @@
+symbol,name,sector_raw
+AC.PA,Accor,Consumer Services
+AI.PA,Air Liquide,Basic Materials
+AIR.PA,Airbus,Industrials
+MT.AS,ArcelorMittal,Basic Materials
+CS.PA,Axa,Financial Services
+BNP.PA,BNP Paribas,Financial Services
+EN.PA,Bouygues,Industrials
+BVI.PA,Bureau Veritas,Inspection and certification
+CAP.PA,Capgemini,Technology
+CA.PA,Carrefour,Consumer Defensive
+ACA.PA,Crédit Agricole,Financial Services
+BN.PA,Danone,Consumer Defensive
+DSY.PA,Dassault Systèmes,Technology
+EDEN.PA,Edenred,Industrials
+ENGI.PA,Engie,Utilities
+EL.PA,EssilorLuxottica,Healthcare
+ERF.PA,Eurofins Scientific,Healthcare
+RMS.PA,Hermès,Consumer Cyclical
+KER.PA,Kering,Consumer Cyclical
+OR.PA,L'Oréal,Consumer Defensive
+LR.PA,Legrand,Industrials
+MC.PA,LVMH,Consumer Cyclical
+ML.PA,Michelin,Industrials
+ORA.PA,Orange,Communication Services
+RI.PA,Pernod Ricard,Consumer Defensive
+PUB.PA,Publicis,Communication Services
+RNO.PA,Renault,Consumer Cyclical
+SAF.PA,Safran,Industrials
+SGO.PA,Saint-Gobain,Industrials
+SAN.PA,Sanofi,Healthcare
+SU.PA,Schneider Electric,Industrials
+GLE.PA,Société Générale,Financial Services
+STLAP.PA,Stellantis,Consumer Cyclical
+STMPA.PA,STMicroelectronics,Technology
+TEP.PA,Teleperformance,Communication Services
+HO.PA,Thales,Industrials
+TTE.PA,TotalEnergies,Energy
+URW.PA,Unibail-Rodamco-Westfield,Real Estate
+VIE.PA,Veolia,Industrials
+DG.PA,Vinci,Industrials

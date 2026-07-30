@@ -1,0 +1,14 @@
+[project]
+name = "sector-flow"
+version = "0.1.0"
+description = "Daily sector rotation and signal screener for S&P 500, CAC 40 and DAX"
+requires-python = ">=3.9"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+filterwarnings = [
+    "ignore::DeprecationWarning:urllib3.*",
+    "ignore:.*NotOpenSSLWarning.*",
+]

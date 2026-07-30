@@ -1,0 +1,12 @@
+# Runtime dependencies for the ingest job.
+pandas>=2.0
+yfinance>=0.2.40
+
+# lxml backs pandas.read_html; requests fetches the pages with a real User-Agent
+# (Wikipedia rejects the default one).
+lxml>=5.0
+requests>=2.31
+
+# tomllib is stdlib from 3.11. CI runs 3.12 and installs nothing here; this only
+# exists so the project also runs on an older local interpreter.
+tomli>=2.0; python_version < "3.11"

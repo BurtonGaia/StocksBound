@@ -1,0 +1,41 @@
+name: Refresh constituents
+
+# Weekly, separate from the price ingest. Index membership changes a handful of
+# times a year, so scraping it daily is needless load on Wikipedia -- and keeping
+# it out of the daily job means a layout change cannot slow the thing that runs
+# every night.
+on:
+  schedule:
+    - cron: "0 6 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      # Refuses to overwrite a fallback with a result that looks wrong (row count
+      # outside the expected band), so a mangled scrape cannot poison the safety net.
+      - run: python -m ingest.refresh_fallbacks
+
+      - name: Commit refreshed fallbacks
+        if: always()
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ingest/static/fallback_*.csv
+          if git diff --quiet --cached; then
+            echo "constituents unchanged"
+            exit 0
+          fi
+          git commit -m "data: refresh index constituents"
+          git push

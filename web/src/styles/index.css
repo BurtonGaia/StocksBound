@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   The whole design in one rule: the interface has no accent colour.
+   Every chrome token below sits at chroma <= 0.007 -- a cool neutral, not a blue
+   and not a brand hue. The only saturated pixels on screen come from heat.ts.
+   A coloured button or a highlighted nav item would compete with the heatmap for
+   attention, and the heatmap is the entire point.
+   --------------------------------------------------------------------------- */
+
+:root {
+  color-scheme: light dark;
+
+  --c-bg: oklch(0.985 0.0015 250);
+  --c-surface: oklch(1 0 0);
+  --c-raised: oklch(0.967 0.002 250);
+  --c-border: oklch(0.906 0.0035 250);
+  --c-border-hi: oklch(0.83 0.005 250);
+  --c-text: oklch(0.255 0.006 250);
+  --c-text-dim: oklch(0.505 0.006 250);
+  --c-text-faint: oklch(0.65 0.005 250);
+  --c-hover: oklch(0.951 0.003 250);
+  --c-focus: oklch(0.42 0.012 250);
+
+  /* Warning surface for stale data. Uses the negative heat hue rather than a
+     third semantic colour -- stale data is bad news, and the palette already
+     has a way to say that. */
+  --c-warn-bg: oklch(0.955 0.045 27);
+  --c-warn-border: oklch(0.82 0.11 27);
+  --c-warn-text: oklch(0.42 0.13 27);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-bg: oklch(0.155 0.004 250);
+    --c-surface: oklch(0.187 0.005 250);
+    --c-raised: oklch(0.216 0.006 250);
+    --c-border: oklch(0.288 0.007 250);
+    --c-border-hi: oklch(0.385 0.008 250);
+    --c-text: oklch(0.93 0.003 250);
+    --c-text-dim: oklch(0.685 0.005 250);
+    --c-text-faint: oklch(0.535 0.006 250);
+    --c-hover: oklch(0.238 0.006 250);
+    --c-focus: oklch(0.78 0.012 250);
+
+    --c-warn-bg: oklch(0.255 0.06 27);
+    --c-warn-border: oklch(0.45 0.12 27);
+    --c-warn-text: oklch(0.88 0.075 27);
+  }
+}
+
+@theme inline {
+  --color-bg: var(--c-bg);
+  --color-surface: var(--c-surface);
+  --color-raised: var(--c-raised);
+  --color-line: var(--c-border);
+  --color-line-hi: var(--c-border-hi);
+  --color-ink: var(--c-text);
+  --color-dim: var(--c-text-dim);
+  --color-faint: var(--c-text-faint);
+  --color-hover: var(--c-hover);
+  --color-warn-bg: var(--c-warn-bg);
+  --color-warn-line: var(--c-warn-border);
+  --color-warn-ink: var(--c-warn-text);
+
+  /* One grotesque for UI, one monospace for every number on screen. The mono
+     stack is what guarantees decimal alignment: monospace means a fixed advance
+     width for digits, so right-aligned fixed-precision numbers line up on the
+     decimal by construction. */
+  --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  /* Four sizes. Not five. */
+  --text-micro: 0.6875rem;
+  --text-micro--line-height: 1rem;
+  --text-body: 0.8125rem;
+  --text-body--line-height: 1.15rem;
+  --text-head: 0.9375rem;
+  --text-head--line-height: 1.35rem;
+  --text-title: 1.25rem;
+  --text-title--line-height: 1.6rem;
+}
+
+@layer base {
+  * {
+    min-width: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--c-bg);
+    color: var(--c-text);
+    font-family: var(--font-ui);
+    font-size: var(--text-body);
+    line-height: 1.15rem;
+    -webkit-font-smoothing: antialiased;
+    /* An instrument panel scrolls vertically. Wide content scrolls inside its
+       own container, never the page. */
+    overflow-x: hidden;
+  }
+
+  /* Every number in the app. Tabular figures plus a fixed decimal count is what
+     makes columns align; this is not decoration. */
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Visible keyboard focus throughout, and only for keyboard. */
+  :focus-visible {
+    outline: 2px solid var(--c-focus);
+    outline-offset: 1px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--c-border-hi);
+    color: var(--c-text);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Motion: cell hover, group expand/collapse, tab switch. Nothing else moves.
+   --------------------------------------------------------------------------- */
+@layer utilities {
+  .motion-hover {
+    transition: background-color 90ms linear;
+  }
+  .motion-collapse {
+    transition: opacity 110ms linear;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
