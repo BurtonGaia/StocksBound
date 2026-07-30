@@ -80,6 +80,25 @@ check("groups arrive expanded, in the first render", filtered.includes('aria-exp
 check("data rows are visible", filtered.includes("Arch Capital Group") && filtered.includes("Allstate"));
 check("geography subgroup header present", filtered.includes(">US<"));
 
+console.log("\n— Tab 2, one click reaches stocks —");
+// Regression guard: expanding a sector must reveal stocks, not just three more
+// collapsed geography rows. Two clicks to see any data reads as a dead click.
+const oneClick = renderToStaticMarkup(
+  <StocksTab
+    latest={latest}
+    filters={EMPTY_FILTERS}
+    onFilters={noop}
+    mode="light"
+    palette="rg"
+    initialExpanded={{ "sector:Financials": true, "sector:Financials>geography:US": true }}
+  />,
+);
+check("expanding a sector reveals its geography rows", oneClick.includes(">US<"));
+check(
+  "and reaches actual stock rows",
+  oneClick.includes("Arch Capital Group"),
+);
+
 console.log("\n— Tab 2, changed-today —");
 const changedRows = latest.rows.filter(enteredSignal);
 const changedView = renderToStaticMarkup(

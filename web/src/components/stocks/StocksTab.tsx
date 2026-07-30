@@ -8,6 +8,7 @@ import {
   getSortedRowModel,
   useReactTable,
   type ExpandedState,
+  type Row,
   type SortingState,
 } from "@tanstack/react-table";
 import { signalInk, signalSolid, type Mode, type Palette } from "../../lib/heat";
@@ -56,12 +57,15 @@ export function StocksTab({
   onFilters,
   mode,
   palette,
+  initialExpanded,
 }: {
   latest: LatestFile;
   filters: Filters;
   onFilters: (filters: Filters) => void;
   mode: Mode;
   palette: Palette;
+  /** Test seam: lets the render checks assert on an expanded tree. */
+  initialExpanded?: ExpandedState;
 }) {
   const [sorting, setSorting] = useState<SortingState>([{ id: "symbol", desc: false }]);
 
@@ -89,12 +93,36 @@ export function StocksTab({
    */
   const active = filtersActive(filters);
   const filterKey = JSON.stringify(filters);
-  const [expanded, setExpanded] = useState<ExpandedState>(active ? true : {});
+  const [expanded, setExpanded] = useState<ExpandedState>(
+    initialExpanded ?? (active ? true : {}),
+  );
   const [lastFilterKey, setLastFilterKey] = useState(filterKey);
   if (lastFilterKey !== filterKey) {
     setLastFilterKey(filterKey);
     setExpanded(active ? true : {});
   }
+
+  /**
+   * Opening a sector opens its geography rows with it.
+   *
+   * Without this, the first click on "Financials" just replaces one collapsed row
+   * with three more collapsed rows and no stocks -- every sector costs two clicks
+   * before any data appears, which reads as the click having done nothing.
+   * Collapsing still collapses only what was asked for.
+   */
+  const openSectorWithChildren = (row: Row<StockRow>) => {
+    if (row.depth !== 0 || row.getIsExpanded()) {
+      row.toggleExpanded();
+      return;
+    }
+    setExpanded((old) => {
+      const base: Record<string, boolean> =
+        old === true ? {} : { ...(old as Record<string, boolean>) };
+      base[row.id] = true;
+      for (const sub of row.subRows) base[sub.id] = true;
+      return base;
+    });
+  };
 
   const columns = useMemo(
     () => [
@@ -264,7 +292,7 @@ export function StocksTab({
                         .filter((leaf) => !leaf.getIsGrouped())
                         .map((leaf) => leaf.original)}
                       expanded={row.getIsExpanded()}
-                      onToggle={row.getToggleExpandedHandler()}
+                      onToggle={() => openSectorWithChildren(row)}
                       span={span}
                       mode={mode}
                       palette={palette}
