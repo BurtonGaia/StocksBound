@@ -14,6 +14,7 @@ import {
 import { signalInk, signalSolid, type Mode, type Palette } from "../../lib/heat";
 import { integer, pctB, price } from "../../lib/format";
 import {
+  chartUrl,
   enteredSignal,
   hasConfluence,
   type LatestFile,
@@ -136,7 +137,20 @@ export function StocksTab({
       columnHelper.accessor("symbol", {
         id: "symbol",
         header: "Symbol",
-        cell: (info) => <span className="num !text-left font-semibold">{info.getValue()}</span>,
+        // A real anchor, not a click handler on a span: keyboard focusable,
+        // middle-clickable, and it shows the destination in the status bar.
+        cell: (info) => (
+          <a
+            href={chartUrl(info.row.original)}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(event) => event.stopPropagation()}
+            className="num !text-left font-semibold underline decoration-dotted underline-offset-2 hover:decoration-solid"
+            title={`Open ${info.row.original.name} chart on Yahoo Finance`}
+          >
+            {info.getValue()}
+          </a>
+        ),
       }),
       columnHelper.accessor("name", {
         id: "name",
@@ -307,7 +321,14 @@ export function StocksTab({
                 return (
                   <tr
                     key={row.id}
-                    className="motion-hover hover:bg-hover"
+                    /* The whole row opens the chart, because that is what a row in
+                       a screener is for. Suppressed when text is selected, so
+                       copying a price does not navigate away. */
+                    onClick={() => {
+                      if (window.getSelection()?.toString()) return;
+                      window.open(chartUrl(stock), "_blank", "noopener,noreferrer");
+                    }}
+                    className="motion-hover cursor-pointer hover:bg-hover"
                     /* Confluence gets distinct weight: a rail in its own hue plus a
                        faint wash. It is the highest-conviction subset and should not
                        have to be hunted for. */

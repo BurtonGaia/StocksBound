@@ -99,6 +99,35 @@ check(
   oneClick.includes("Arch Capital Group"),
 );
 
+console.log("\n— Tab 2, rows link to a chart —");
+check(
+  "every visible row carries a chart link",
+  (oneClick.match(/finance\.yahoo\.com\/quote\//g) ?? []).length > 50,
+  `${(oneClick.match(/finance\.yahoo\.com\/quote\//g) ?? []).length} links`,
+);
+check(
+  "links open safely in a new tab",
+  oneClick.includes('rel="noopener noreferrer"') && oneClick.includes('target="_blank"'),
+);
+// The link must use yahoo_symbol, not the display ticker: BRK.B is fetched as
+// BRK-B, and ArcelorMittal is MT.AS despite sitting in the CAC 40.
+const tricky = latest.rows.filter((r) => r.symbol !== r.yahoo_symbol);
+const trickyView = renderToStaticMarkup(
+  <StocksTab
+    latest={latest}
+    filters={{ ...EMPTY_FILTERS, search: "berkshire" }}
+    onFilters={noop}
+    mode="light"
+    palette="rg"
+    initialExpanded
+  />,
+);
+check(
+  "share-class tickers link to the Yahoo symbol",
+  trickyView.includes("quote/BRK-B/chart") && !trickyView.includes("quote/BRK.B/chart"),
+  `${tricky.length} rows where display != yahoo symbol`,
+);
+
 console.log("\n— Tab 2, changed-today —");
 const changedRows = latest.rows.filter(enteredSignal);
 const changedView = renderToStaticMarkup(

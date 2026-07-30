@@ -137,6 +137,21 @@ export function hasConfluence(row: StockRow): boolean {
 }
 
 /**
+ * Chart for a row, on Yahoo Finance.
+ *
+ * Built from `yahoo_symbol` rather than the display ticker, because that is the
+ * exact string the ingest fetched with -- so the link cannot disagree with the
+ * data next to it. That matters for the awkward cases: BRK.B is BRK-B here,
+ * ArcelorMittal is MT.AS and not MT.PA despite being a CAC 40 member.
+ *
+ * Yahoo rather than TradingView because TradingView needs an exchange prefix
+ * (NYSE:, NASDAQ:, XETR:) that we do not carry and would have to guess.
+ */
+export function chartUrl(row: StockRow): string {
+  return `https://finance.yahoo.com/quote/${encodeURIComponent(row.yahoo_symbol)}/chart`;
+}
+
+/**
  * Flipped *into* a signal on the latest bar -- the actionable list.
  *
  * Narrower than the artifact's `changed` flag, which is true for any flip
