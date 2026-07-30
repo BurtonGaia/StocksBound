@@ -8,8 +8,10 @@ import {
   getSortedRowModel,
   useReactTable,
   type ExpandedState,
+  type GroupingState,
   type Row,
   type SortingState,
+  type VisibilityState,
 } from "@tanstack/react-table";
 import { signalInk, signalSolid, type Mode, type Palette } from "../../lib/heat";
 import { integer, pctB, price } from "../../lib/format";
@@ -50,6 +52,19 @@ const SECTOR_TOP = THEAD_H;
 const GEO_TOP = THEAD_H + GROUP_H;
 
 const NUMERIC = new Set(["close", "sma50", "pct_b"]);
+
+/**
+ * Hoisted out of the component deliberately.
+ *
+ * These are passed inside TanStack's controlled `state`. Written as literals in
+ * the render body they get a fresh identity on every pass, TanStack sees the
+ * state as changed, notifies back through onStateChange, and that re-render
+ * creates fresh literals again -- an infinite loop that pins the main thread and
+ * makes the whole tab feel frozen. Neither value ever changes, so they are
+ * module constants.
+ */
+const GROUPING: GroupingState = ["sector", "geography"];
+const COLUMN_VISIBILITY: VisibilityState = { sector: false };
 
 const columnHelper = createColumnHelper<StockRow>();
 
@@ -204,12 +219,15 @@ export function StocksTab({
   const table = useReactTable({
     data: rows,
     columns,
-    state: {
-      sorting,
-      expanded,
-      grouping: ["sector", "geography"],
-      columnVisibility: { sector: false },
-    },
+    // Grouping and column visibility go in initialState, not state.
+    //
+    // Listing a slice in `state` makes it controlled, and a controlled slice with
+    // no matching onChange handler sends TanStack back through its own internal
+    // setState whenever it touches that slice -- which re-renders, which re-runs
+    // this, forever. The loop pinned the main thread and made the tab feel frozen.
+    // Neither value ever changes, so the table can own them outright.
+    initialState: { grouping: GROUPING, columnVisibility: COLUMN_VISIBILITY },
+    state: { sorting, expanded },
     onSortingChange: setSorting,
     onExpandedChange: setExpanded,
     // Keep columns where they are instead of hoisting grouped ones to the front.
