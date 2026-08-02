@@ -1,18 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-01T23:30:49Z",
+  "generated_at": "2026-08-02T23:31:16Z",
   "as_of": "2026-07-31",
   "run": {
     "symbols_requested": 582,
     "symbols_ok": 582,
-    "symbols_failed": 1,
-    "duration_s": 44.4,
-    "failed": [
-      {
-        "symbol": "FDXF",
-        "reason": "no price data returned"
-      }
-    ]
+    "symbols_failed": 0,
+    "duration_s": 47.3,
+    "failed": []
   },
   "universe": {
     "SP500": {
