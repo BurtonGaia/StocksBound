@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-05T23:31:06Z",
-  "as_of": "2026-08-05",
+  "generated_at": "2026-08-07T01:37:51Z",
+  "as_of": "2026-08-06",
   "run": {
-    "symbols_requested": 581,
-    "symbols_ok": 581,
+    "symbols_requested": 582,
+    "symbols_ok": 582,
     "symbols_failed": 0,
-    "duration_s": 50.0,
+    "duration_s": 45.2,
     "failed": []
   },
   "universe": {
     "SP500": {
       "source": "wikipedia",
-      "count": 502
+      "count": 503
     },
     "CAC40": {
       "source": "wikipedia",
