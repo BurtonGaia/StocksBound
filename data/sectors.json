@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of": "2026-08-07",
-  "generated_at": "2026-08-07T23:08:30Z",
+  "generated_at": "2026-08-08T22:59:30Z",
   "horizons": [
     "1w",
     "1m",
@@ -11,30 +11,30 @@
     {
       "geography": "US",
       "n": 503,
-      "ret_1w": 0.02529,
-      "ret_1m": 0.039344,
+      "ret_1w": 0.025373,
+      "ret_1m": 0.039428,
       "ret_3m": 0.07702
     },
     {
       "geography": "France",
       "n": 40,
-      "ret_1w": 0.024241,
-      "ret_1m": 0.072949,
-      "ret_3m": 0.093796
+      "ret_1w": 0.027019,
+      "ret_1m": 0.075791,
+      "ret_3m": 0.096734
     },
     {
       "geography": "Germany",
       "n": 39,
-      "ret_1w": 0.010573,
-      "ret_1m": 0.041285,
-      "ret_3m": 0.090012
+      "ret_1w": 0.013928,
+      "ret_1m": 0.04465,
+      "ret_3m": 0.093202
     },
     {
       "geography": "ALL",
       "n": 582,
-      "ret_1w": 0.024232,
-      "ret_1m": 0.041784,
-      "ret_3m": 0.07905
+      "ret_1w": 0.024719,
+      "ret_1m": 0.042277,
+      "ret_3m": 0.079468
     }
   ],
   "cells": [
@@ -48,8 +48,8 @@
         "neutral": 21,
         "insufficient": 0
       },
-      "rel_1w": 0.003208,
-      "rel_1m": -0.024203,
+      "rel_1w": 0.003125,
+      "rel_1m": -0.024287,
       "rel_3m": -0.129568
     },
     {
@@ -62,9 +62,9 @@
         "neutral": 3,
         "insufficient": 0
       },
-      "rel_1w": -0.006847,
-      "rel_1m": 0.108442,
-      "rel_3m": 0.029147
+      "rel_1w": 0.002059,
+      "rel_1m": 0.119921,
+      "rel_3m": 0.039273
     },
     {
       "sector": "Communication Services",
@@ -76,9 +76,9 @@
         "neutral": 1,
         "insufficient": 0
       },
-      "rel_1w": 0.078739,
-      "rel_1m": 0.100062,
-      "rel_3m": -0.026143
+      "rel_1w": 0.071274,
+      "rel_1m": 0.09239,
+      "rel_3m": -0.033348
     },
     {
       "sector": "Communication Services",
@@ -90,9 +90,9 @@
         "neutral": 25,
         "insufficient": 0
       },
-      "rel_1w": 0.005285,
-      "rel_1m": -0.003497,
-      "rel_3m": -0.107787
+      "rel_1w": 0.005944,
+      "rel_1m": -0.002558,
+      "rel_3m": -0.106903
     },
     {
       "sector": "Consumer Discretionary",
@@ -104,8 +104,8 @@
         "neutral": 45,
         "insufficient": 0
       },
-      "rel_1w": 0.006436,
-      "rel_1m": 0.030341,
+      "rel_1w": 0.006469,
+      "rel_1m": 0.030383,
       "rel_3m": 0.006793
     },
     {
@@ -118,9 +118,9 @@
         "neutral": 6,
         "insufficient": 0
       },
-      "rel_1w": 0.002513,
-      "rel_1m": -0.010926,
-      "rel_3m": -0.090265
+      "rel_1w": -0.002908,
+      "rel_1m": -0.016589,
+      "rel_3m": -0.095843
     },
     {
       "sector": "Consumer Discretionary",
@@ -128,13 +128,13 @@
       "n": 9,
       "breadth": {
         "bullish": 0,
-        "bearish": 1,
-        "neutral": 8,
+        "bearish": 2,
+        "neutral": 7,
         "insufficient": 0
       },
-      "rel_1w": -0.029554,
-      "rel_1m": -0.025517,
-      "rel_3m": -0.073084
+      "rel_1w": -0.029865,
+      "rel_1m": -0.026185,
+      "rel_3m": -0.075179
     },
     {
       "sector": "Consumer Discretionary",
@@ -142,13 +142,13 @@
       "n": 62,
       "breadth": {
         "bullish": 1,
-        "bearish": 2,
-        "neutral": 59,
+        "bearish": 3,
+        "neutral": 58,
         "insufficient": 0
       },
-      "rel_1w": -0.000348,
-      "rel_1m": 0.019333,
-      "rel_3m": -0.012715
+      "rel_1w": -0.000561,
+      "rel_1m": 0.019054,
+      "rel_3m": -0.01323
     },
     {
       "sector": "Consumer Staples",
@@ -160,8 +160,8 @@
         "neutral": 33,
         "insufficient": 0
       },
-      "rel_1w": -0.016988,
-      "rel_1m": -0.015133,
+      "rel_1w": -0.017071,
+      "rel_1m": -0.015217,
       "rel_3m": -0.02326
     },
     {
@@ -174,9 +174,9 @@
         "neutral": 4,
         "insufficient": 0
       },
-      "rel_1w": -0.015376,
-      "rel_1m": -0.059058,
-      "rel_3m": -0.023324
+      "rel_1w": -0.018479,
+      "rel_1m": -0.061785,
+      "rel_3m": -0.026251
     },
     {
       "sector": "Consumer Staples",
@@ -188,9 +188,9 @@
         "neutral": 2,
         "insufficient": 0
       },
-      "rel_1w": 0.022779,
-      "rel_1m": 0.020385,
-      "rel_3m": 0.093913
+      "rel_1w": 0.016683,
+      "rel_1m": 0.014086,
+      "rel_3m": 0.087743
     },
     {
       "sector": "Consumer Staples",
@@ -202,9 +202,9 @@
         "neutral": 39,
         "insufficient": 0
       },
-      "rel_1w": -0.014621,
-      "rel_1m": -0.016732,
-      "rel_3m": -0.017111
+      "rel_1w": -0.015278,
+      "rel_1m": -0.01736,
+      "rel_3m": -0.017677
     },
     {
       "sector": "Energy",
@@ -216,8 +216,8 @@
         "neutral": 20,
         "insufficient": 0
       },
-      "rel_1w": -0.061615,
-      "rel_1m": -0.026965,
+      "rel_1w": -0.06152,
+      "rel_1m": -0.026861,
       "rel_3m": -0.05668
     },
     {
@@ -230,9 +230,9 @@
         "neutral": 1,
         "insufficient": 0
       },
-      "rel_1w": -0.048842,
-      "rel_1m": 0.001889,
-      "rel_3m": -0.09815
+      "rel_1w": -0.057508,
+      "rel_1m": -0.007442,
+      "rel_3m": -0.107099
     },
     {
       "sector": "Energy",
@@ -258,9 +258,9 @@
         "neutral": 21,
         "insufficient": 0
       },
-      "rel_1w": -0.060025,
-      "rel_1m": -0.026566,
-      "rel_3m": -0.059833
+      "rel_1w": -0.060609,
+      "rel_1m": -0.027175,
+      "rel_3m": -0.060524
     },
     {
       "sector": "Financials",
@@ -272,8 +272,8 @@
         "neutral": 75,
         "insufficient": 0
       },
-      "rel_1w": -0.01286,
-      "rel_1m": 0.010726,
+      "rel_1w": -0.012867,
+      "rel_1m": 0.010719,
       "rel_3m": 0.045244
     },
     {
@@ -286,9 +286,9 @@
         "neutral": 4,
         "insufficient": 0
       },
-      "rel_1w": -0.005549,
-      "rel_1m": 0.0476,
-      "rel_3m": 0.127822
+      "rel_1w": -0.007764,
+      "rel_1m": 0.045371,
+      "rel_3m": 0.125574
     },
     {
       "sector": "Financials",
@@ -300,9 +300,9 @@
         "neutral": 6,
         "insufficient": 0
       },
-      "rel_1w": 0.006496,
-      "rel_1m": -0.001177,
-      "rel_3m": 0.037182
+      "rel_1w": 0.004972,
+      "rel_1m": -0.00275,
+      "rel_3m": 0.03597
     },
     {
       "sector": "Financials",
@@ -314,9 +314,9 @@
         "neutral": 85,
         "insufficient": 0
       },
-      "rel_1w": -0.011188,
-      "rel_1m": 0.010869,
-      "rel_3m": 0.048179
+      "rel_1w": -0.011453,
+      "rel_1m": 0.010598,
+      "rel_3m": 0.047932
     },
     {
       "sector": "Health Care",
@@ -328,9 +328,9 @@
         "neutral": 59,
         "insufficient": 0
       },
-      "rel_1w": -0.003275,
-      "rel_1m": 0.011325,
-      "rel_3m": 0.084424
+      "rel_1w": -0.003357,
+      "rel_1m": 0.011241,
+      "rel_3m": 0.084425
     },
     {
       "sector": "Health Care",
@@ -342,37 +342,37 @@
         "neutral": 3,
         "insufficient": 0
       },
-      "rel_1w": -0.001814,
-      "rel_1m": -0.059782,
-      "rel_3m": -0.029266
+      "rel_1w": 0.001524,
+      "rel_1m": -0.05663,
+      "rel_3m": -0.026149
     },
     {
       "sector": "Health Care",
       "geography": "Germany",
       "n": 6,
       "breadth": {
-        "bullish": 1,
+        "bullish": 0,
         "bearish": 0,
-        "neutral": 5,
+        "neutral": 6,
         "insufficient": 0
       },
-      "rel_1w": 0.006976,
-      "rel_1m": 0.020077,
-      "rel_3m": 0.146811
+      "rel_1w": 0.008704,
+      "rel_1m": 0.022064,
+      "rel_3m": 0.14958
     },
     {
       "sector": "Health Care",
       "geography": "ALL",
       "n": 68,
       "breadth": {
-        "bullish": 1,
+        "bullish": 0,
         "bearish": 0,
-        "neutral": 67,
+        "neutral": 68,
         "insufficient": 0
       },
-      "rel_1w": -0.002593,
-      "rel_1m": 0.008174,
-      "rel_3m": 0.08477
+      "rel_1w": -0.002361,
+      "rel_1m": 0.008418,
+      "rel_3m": 0.085145
     },
     {
       "sector": "Industrials",
@@ -384,8 +384,8 @@
         "neutral": 79,
         "insufficient": 2
       },
-      "rel_1w": 0.009899,
-      "rel_1m": -0.001888,
+      "rel_1w": 0.009922,
+      "rel_1m": -0.001862,
       "rel_3m": -0.003677
     },
     {
@@ -393,14 +393,14 @@
       "geography": "France",
       "n": 12,
       "breadth": {
-        "bullish": 1,
-        "bearish": 0,
+        "bullish": 0,
+        "bearish": 1,
         "neutral": 11,
         "insufficient": 0
       },
-      "rel_1w": 0.008495,
-      "rel_1m": 0.003813,
-      "rel_3m": 0.025906
+      "rel_1w": 0.008407,
+      "rel_1m": 0.003706,
+      "rel_3m": 0.026043
     },
     {
       "sector": "Industrials",
@@ -412,23 +412,23 @@
         "neutral": 7,
         "insufficient": 0
       },
-      "rel_1w": 0.005613,
-      "rel_1m": 0.018054,
-      "rel_3m": -0.027246
+      "rel_1w": 0.000714,
+      "rel_1m": 0.013083,
+      "rel_3m": -0.031927
     },
     {
       "sector": "Industrials",
       "geography": "ALL",
       "n": 102,
       "breadth": {
-        "bullish": 2,
-        "bearish": 1,
+        "bullish": 1,
+        "bearish": 2,
         "neutral": 97,
         "insufficient": 2
       },
-      "rel_1w": 0.009365,
-      "rel_1m": 0.001798,
-      "rel_3m": -0.000885
+      "rel_1w": 0.009174,
+      "rel_1m": 0.001606,
+      "rel_3m": -0.001038
     },
     {
       "sector": "Information Technology",
@@ -440,8 +440,8 @@
         "neutral": 65,
         "insufficient": 0
       },
-      "rel_1w": 0.048435,
-      "rel_1m": 0.018796,
+      "rel_1w": 0.048352,
+      "rel_1m": 0.018712,
       "rel_3m": 0.018986
     },
     {
@@ -454,9 +454,9 @@
         "neutral": 3,
         "insufficient": 0
       },
-      "rel_1w": 0.033741,
-      "rel_1m": -0.002507,
-      "rel_3m": -0.036405
+      "rel_1w": 0.050409,
+      "rel_1m": 0.012733,
+      "rel_3m": -0.020281
     },
     {
       "sector": "Information Technology",
@@ -468,9 +468,9 @@
         "neutral": 2,
         "insufficient": 0
       },
-      "rel_1w": 0.020656,
-      "rel_1m": 0.007406,
-      "rel_3m": -0.016131
+      "rel_1w": 0.053704,
+      "rel_1m": 0.041856,
+      "rel_3m": 0.018822
     },
     {
       "sector": "Information Technology",
@@ -482,9 +482,9 @@
         "neutral": 70,
         "insufficient": 0
       },
-      "rel_1w": 0.047798,
-      "rel_1m": 0.016587,
-      "rel_3m": 0.014904
+      "rel_1w": 0.048992,
+      "rel_1m": 0.017759,
+      "rel_3m": 0.016197
     },
     {
       "sector": "Materials",
@@ -496,8 +496,8 @@
         "neutral": 25,
         "insufficient": 0
       },
-      "rel_1w": 0.018282,
-      "rel_1m": 0.03184,
+      "rel_1w": 0.018199,
+      "rel_1m": 0.031756,
       "rel_3m": -0.036215
     },
     {
@@ -510,9 +510,9 @@
         "neutral": 2,
         "insufficient": 0
       },
-      "rel_1w": 0.009988,
-      "rel_1m": 0.022822,
-      "rel_3m": 0.076981
+      "rel_1w": -0.002511,
+      "rel_1m": 0.009334,
+      "rel_3m": 0.062873
     },
     {
       "sector": "Materials",
@@ -524,9 +524,9 @@
         "neutral": 3,
         "insufficient": 0
       },
-      "rel_1w": 0.008483,
-      "rel_1m": -0.00662,
-      "rel_3m": -0.040708
+      "rel_1w": 0.003587,
+      "rel_1m": -0.011358,
+      "rel_3m": -0.045056
     },
     {
       "sector": "Materials",
@@ -538,9 +538,9 @@
         "neutral": 30,
         "insufficient": 0
       },
-      "rel_1w": 0.016265,
-      "rel_1m": 0.027387,
-      "rel_3m": -0.02873
+      "rel_1w": 0.014976,
+      "rel_1m": 0.026047,
+      "rel_3m": -0.030009
     },
     {
       "sector": "Real Estate",
@@ -552,8 +552,8 @@
         "neutral": 28,
         "insufficient": 0
       },
-      "rel_1w": -0.027512,
-      "rel_1m": -0.02298,
+      "rel_1w": -0.027595,
+      "rel_1m": -0.023064,
       "rel_3m": -0.045559
     },
     {
@@ -566,9 +566,9 @@
         "neutral": 1,
         "insufficient": 0
       },
-      "rel_1w": -0.035162,
-      "rel_1m": -0.039202,
-      "rel_3m": -0.023774
+      "rel_1w": -0.036516,
+      "rel_1m": -0.040555,
+      "rel_3m": -0.025171
     },
     {
       "sector": "Real Estate",
@@ -580,9 +580,9 @@
         "neutral": 1,
         "insufficient": 0
       },
-      "rel_1w": -0.024363,
-      "rel_1m": -0.05648,
-      "rel_3m": -0.102054
+      "rel_1w": -0.012977,
+      "rel_1m": -0.045125,
+      "rel_3m": -0.090477
     },
     {
       "sector": "Real Estate",
@@ -594,22 +594,22 @@
         "neutral": 30,
         "insufficient": 0
       },
-      "rel_1w": -0.027068,
-      "rel_1m": -0.02585,
-      "rel_3m": -0.047739
+      "rel_1w": -0.027065,
+      "rel_1m": -0.025852,
+      "rel_3m": -0.047663
     },
     {
       "sector": "Utilities",
       "geography": "US",
       "n": 31,
       "breadth": {
-        "bullish": 1,
+        "bullish": 2,
         "bearish": 0,
-        "neutral": 30,
+        "neutral": 29,
         "insufficient": 0
       },
-      "rel_1w": -0.041793,
-      "rel_1m": -0.082936,
+      "rel_1w": -0.041305,
+      "rel_1m": -0.082461,
       "rel_3m": -0.082199
     },
     {
@@ -622,9 +622,9 @@
         "neutral": 1,
         "insufficient": 0
       },
-      "rel_1w": -0.044529,
-      "rel_1m": -0.081164,
-      "rel_3m": -0.109728
+      "rel_1w": -0.041405,
+      "rel_1m": -0.078032,
+      "rel_3m": -0.106738
     },
     {
       "sector": "Utilities",
@@ -636,23 +636,23 @@
         "neutral": 2,
         "insufficient": 0
       },
-      "rel_1w": -0.010416,
-      "rel_1m": -0.044716,
-      "rel_3m": -0.080363
+      "rel_1w": -0.01404,
+      "rel_1m": -0.048445,
+      "rel_3m": -0.083673
     },
     {
       "sector": "Utilities",
       "geography": "ALL",
       "n": 34,
       "breadth": {
-        "bullish": 1,
+        "bullish": 2,
         "bearish": 0,
-        "neutral": 33,
+        "neutral": 32,
         "insufficient": 0
       },
-      "rel_1w": -0.039866,
-      "rel_1m": -0.081973,
-      "rel_3m": -0.083673
+      "rel_1w": -0.039675,
+      "rel_1m": -0.081802,
+      "rel_3m": -0.083923
     }
   ]
 }
