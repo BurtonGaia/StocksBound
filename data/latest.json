@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of": "2026-09-11",
-  "generated_at": "2026-09-13T00:09:53Z",
+  "generated_at": "2026-09-14T00:21:53Z",
   "rows": [
     {"symbol":"AC.PA","yahoo_symbol":"AC.PA","name":"Accor","index":"CAC40","geography":"France","sector":"Consumer Discretionary","daily":{"bar_date":"2026-09-11","close":46.07,"sma50":46.8116,"pct_b":0.4095,"signal":"NEUTRAL","prev_signal":"NEUTRAL","changed":false},"weekly":{"bar_date":"2026-09-11","close":46.07,"sma50":44.82,"pct_b":0.4913,"signal":"NEUTRAL","prev_signal":"NEUTRAL","changed":false}},
     {"symbol":"ACA.PA","yahoo_symbol":"ACA.PA","name":"Cr\u00e9dit Agricole","index":"CAC40","geography":"France","sector":"Financials","daily":{"bar_date":"2026-09-11","close":18.625,"sma50":18.6971,"pct_b":0.3478,"signal":"NEUTRAL","prev_signal":"NEUTRAL","changed":false},"weekly":{"bar_date":"2026-09-11","close":18.625,"sma50":16.6316,"pct_b":0.6749,"signal":"NEUTRAL","prev_signal":"NEUTRAL","changed":false}},
