@@ -1,13 +1,22 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-15T00:50:18Z",
-  "as_of": "2026-09-11",
+  "generated_at": "2026-09-16T00:42:48Z",
+  "as_of": "2026-09-14",
   "run": {
     "symbols_requested": 582,
     "symbols_ok": 582,
-    "symbols_failed": 0,
-    "duration_s": 40.1,
-    "failed": []
+    "symbols_failed": 2,
+    "duration_s": 65.8,
+    "failed": [
+      {
+        "symbol": "BN.PA",
+        "reason": "no price data returned"
+      },
+      {
+        "symbol": "ENGI.PA",
+        "reason": "no price data returned"
+      }
+    ]
   },
   "universe": {
     "SP500": {
