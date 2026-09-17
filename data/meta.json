@@ -1,19 +1,15 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-16T00:42:48Z",
-  "as_of": "2026-09-14",
+  "generated_at": "2026-09-17T00:48:52Z",
+  "as_of": "2026-09-16",
   "run": {
     "symbols_requested": 582,
     "symbols_ok": 582,
-    "symbols_failed": 2,
-    "duration_s": 65.8,
+    "symbols_failed": 1,
+    "duration_s": 42.1,
     "failed": [
       {
-        "symbol": "BN.PA",
-        "reason": "no price data returned"
-      },
-      {
-        "symbol": "ENGI.PA",
+        "symbol": "DG.PA",
         "reason": "no price data returned"
       }
     ]
