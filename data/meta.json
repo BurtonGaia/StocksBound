@@ -1,18 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-17T00:48:52Z",
-  "as_of": "2026-09-16",
+  "generated_at": "2026-09-18T00:41:23Z",
+  "as_of": "2026-09-17",
   "run": {
     "symbols_requested": 582,
     "symbols_ok": 582,
-    "symbols_failed": 1,
-    "duration_s": 42.1,
-    "failed": [
-      {
-        "symbol": "DG.PA",
-        "reason": "no price data returned"
-      }
-    ]
+    "symbols_failed": 0,
+    "duration_s": 47.2,
+    "failed": []
   },
   "universe": {
     "SP500": {
