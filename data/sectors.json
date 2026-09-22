@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of": "2026-09-18",
-  "generated_at": "2026-09-21T00:25:50Z",
+  "generated_at": "2026-09-22T01:03:17Z",
   "horizons": [
     "1w",
     "1m",
@@ -57,9 +57,9 @@
       "geography": "France",
       "n": 3,
       "breadth": {
-        "bullish": 1,
+        "bullish": 0,
         "bearish": 0,
-        "neutral": 2,
+        "neutral": 3,
         "insufficient": 0
       },
       "rel_1w": 0.006445,
@@ -85,9 +85,9 @@
       "geography": "ALL",
       "n": 27,
       "breadth": {
-        "bullish": 7,
+        "bullish": 6,
         "bearish": 0,
-        "neutral": 20,
+        "neutral": 21,
         "insufficient": 0
       },
       "rel_1w": -0.013522,
@@ -505,9 +505,9 @@
       "geography": "France",
       "n": 2,
       "breadth": {
-        "bullish": 0,
+        "bullish": 1,
         "bearish": 0,
-        "neutral": 2,
+        "neutral": 1,
         "insufficient": 0
       },
       "rel_1w": -0.007899,
@@ -533,9 +533,9 @@
       "geography": "ALL",
       "n": 30,
       "breadth": {
-        "bullish": 4,
+        "bullish": 5,
         "bearish": 0,
-        "neutral": 26,
+        "neutral": 25,
         "insufficient": 0
       },
       "rel_1w": -0.006027,
