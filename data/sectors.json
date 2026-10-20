@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of": "2026-10-16",
-  "generated_at": "2026-10-19T00:23:29Z",
+  "generated_at": "2026-10-20T01:10:34Z",
   "horizons": [
     "1w",
     "1m",
@@ -581,7 +581,7 @@
         "insufficient": 0
       },
       "rel_1w": -0.001078,
-      "rel_1m": -0.070525,
+      "rel_1m": -0.070524,
       "rel_3m": -0.220501
     },
     {
