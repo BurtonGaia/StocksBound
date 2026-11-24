@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-23T02:59:34Z",
-  "as_of": "2026-11-20",
+  "generated_at": "2026-11-24T06:17:22Z",
+  "as_of": "2026-11-23",
   "run": {
     "symbols_requested": 582,
     "symbols_ok": 582,
     "symbols_failed": 0,
-    "duration_s": 41.0,
+    "duration_s": 35.8,
     "failed": []
   },
   "universe": {
